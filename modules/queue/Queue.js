@@ -36,15 +36,15 @@ class Queue {
 
   show() {
     // Return the next item in the queue.
-    if (queue.first === null) return;
-    return queue.first.value;
+    if (this.first === null) return;
+    return this.first.value;
   }
 
   all() {
     // Return all items in the queue.
-    if (queue.first === null) return;
+    if (this.first === null) return;
     let builder = '';
-    let current = queue.first;
+    let current = this.first;
     builder += current.value;
     while (current.next !== null) {
       current = current.next;

@@ -12,12 +12,12 @@ store.people.forEach(person => people.enqueue(person))
 module.exports = {
   get() {
     // Return all people in the queue.
-    return { peopel: people.all() };
+    return { people: people.all() };
   },
 
   enqueue(person) {
     // Add a person to the queue.
-    pepel.enqueue(person);
+    people.enqueue(person);
   },
 
   dequeue() {
