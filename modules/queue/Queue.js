@@ -7,8 +7,8 @@ class _Node {
 
 class Queue {
   constructor() {
-   this.first = null;
-   this.last = null;
+    this.first = null;
+    this.last = null;
   }
 
   enqueue(item) {
@@ -16,22 +16,22 @@ class Queue {
     if (this.first === null) {
       this.first = node;
     }
-    if (this.last){
+    if (this.last) {
       this.last.next = node;
     }
+    this.last = node;
   }
 
   dequeue() {
-    if (!this.first) {
+    if (this.first === null) {
       return;
     }
     const node = this.first;
-    this.first = node.next;
-
+    this.first = this.first.next;
     if (node === this.last) {
       this.last = null;
     }
-    return node.value
+    return node.value;
   }
 
   show() {
@@ -42,18 +42,14 @@ class Queue {
 
   all() {
     // Return all items in the queue.
-    if (this.first === null) return;
-    let builder = '';
-    let current = this.first;
-    builder += current.value;
-    while (current.next !== null) {
-      current = current.next;
-      builder += ' -> ' + current.value;
+    let node = this.first;
+    let arr = [];
+    while (node !== null) {
+      arr.push(node.value);
+      node = node.next;
     }
-    builder += ' -> tail';
-    console.log(builder);
-    return;
+    return arr;
   }
 }
 
-module.exports = Queue
+module.exports = Queue;
